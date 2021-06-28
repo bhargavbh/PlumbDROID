@@ -77,11 +77,11 @@ The next steps will allow you to install Android SDK in Non-GUI mode:
 **INPUT:** A folder containing files with ".apk" extension.
 **OUTPUT:** A structure of folders following this scheme:
 
-# /                     --> root folder
-# /plumbDroid_outputs/   --> plumbdroid results
-# /plumbDroid_outputs/patched_apps --> patched apks for each of resources
-# /plumbDroid_outputs/patches --> plumbdroid generated patches in smali with location
-# /metrics/      --> Features files generated with PlumbDROID
+ /                     --> root folder
+ /plumbDroid_outputs/   --> plumbdroid results
+ /plumbDroid_outputs/patched_apps --> patched apks for each of resources
+ /plumbDroid_outputs/patches --> plumbdroid generated patches in smali with location
+ /metrics/      --> Features files generated with PlumbDROID
 
 ### Usage
 
