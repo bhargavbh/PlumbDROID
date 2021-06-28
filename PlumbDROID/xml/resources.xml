@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<guideline>
+	<systemCall id="1001" name="wakelocks">
+	    <type>WakeLock</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.os.PowerManager$WakeLock.acquire</syscall1>
+		<syscall2>android.os.PowerManager$WakeLock.release</syscall2>
+		<isRefCounted>true</isRefCounted>
+		<sysCallRef>setReferenceCounted</sysCallRef>
+		<arguments>
+			<value>PARTIAL WAKE LOCK</value>
+			<value>SCREEN DIM WAKE LOCK</value>
+			<value>SCREEN BRIGHT WAKE LOCK</value>
+			<value>FULL WAKE LOCK</value>
+		</arguments>
+	</systemCall>
+	
+	<systemCall id="1002" name="not initialized - just a demo">
+	    <type>Other</type>
+		<isPair>false</isPair><isUse>false</isUse>
+		<syscall1>abc</syscall1>
+		<syscall2></syscall2>
+		<isRefCounted>true</isRefCounted>
+		<sysCallRef>setReferenceCounted</sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+	
+	<systemCall id="1003" name="location manager - proximity alert">
+	    <type>GPS</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.location.LocationManager.addProximityAlert</syscall1>
+		<syscall2>android.location.LocationManager.removeProximityAlert</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+	
+
+	<systemCall id="1004" name="location manager - location updates">
+	    <type>GPS</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.location.LocationManager.requestLocationUpdates</syscall1>
+		<syscall2>android.location.LocationManager.removeUpdates</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+	
+	<systemCall id="1005" name="sensor manager">
+	    <type>Sensor</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.hardware.SensorManager.registerListener</syscall1>
+		<syscall2>android.hardware.SensorManager.unregisterListener</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+
+	<systemCall id="1006" name="wifi manager - acquire/release">
+	    <type>Wifi</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.net.wifi.WifiManager$WifiLock.acquire</syscall1>
+		<syscall2>android.net.wifi.WifiManager$WifiLock.release</syscall2>
+		<isRefCounted>true</isRefCounted>
+		<sysCallRef>setReferenceCounted</sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+
+	<systemCall id="1007" name="wifi manager - enable wifi">
+	    <type>Wifi</type>
+		<isPair>false</isPair><isUse>false</isUse>
+		<syscall1>android.net.wifi.WifiManager.setWifiEnabled</syscall1>
+		<syscall2></syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+
+
+	<systemCall id="1008" name="camera manager - open/release">
+	    <type>Camera</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.hardware.Camera.open</syscall1>
+		<syscall2>android.hardware.Camera.release</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+
+	<systemCall id="1009" name="camera manager - startPreview/stopPreview">
+	    <type>Camera</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.hardware.Camera.startPreview</syscall1>
+		<syscall2>android.hardware.Camera.stopPreview</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+
+	<systemCall id="1010" name="bluetooth manager - enable/disable">
+	    <type>Bluetooth</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.bluetooth.BluetoothAdapter.enable</syscall1>
+		<syscall2>android.bluetooth.BluetoothAdapter.disable</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+
+	<systemCall id="1011" name="bluetooth manager - startVoiceRecognition/stopVoiceRecognition">
+	    <type>Bluetooth</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.bluetooth.BluetoothHeadset.startVoiceRecognition</syscall1>
+		<syscall2>android.bluetooth.BluetoothHeadset.stopVoiceRecognition</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+
+	<systemCall id="1012" name="audio - startRecording/stop">
+	    <type>Audio</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.media.MediaRecorder.startRecording</syscall1>
+		<syscall2>android.media.MediaRecorder.stop</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+
+	<systemCall id="1013" name="video - start/stop">
+	    <type>Media</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.media.MediaRecorder.start</syscall1>
+		<syscall2>android.media.MediaRecorder.stop</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+
+	<systemCall id="1014" name="Google Location Clients - requestLocationUpdates=removeLocationUpdates">
+	    <type>GPS</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>com.google.android.gms.location.LocationClient.requestLocationUpdates</syscall1>
+		<syscall2>com.google.android.gms.location.LocationClient.removeLocationUpdates</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+
+	<systemCall id="1015" name="Google Location Clients - addGeofences/removeGeofences">
+	    <type>GPS</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>com.google.android.gms.location.LocationClient.addGeofences</syscall1>
+		<syscall2>com.google.android.gms.location.LocationClient.removeGeofences</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+
+	<systemCall id="1016" name="vibration - vibrate/cancel">
+	    <type>Vibration</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.os.Vibrator.vibrate</syscall1>
+		<syscall2>android.os.Vibrator.cancel</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+	
+	<systemCall id="1017" name="location manager - getLastKnownLocation">
+	    <type>GPS</type>
+		<isPair>false</isPair><isUse>true</isUse>
+		<syscall1>android.location.LocationManager.getLastKnownLocation</syscall1>
+		<syscall2></syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+	
+	
+	
+		<systemCall id="1018" name="MediaPlayer - prepare/release">
+	    <type>Media</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.media.MediaPlayer.prepare</syscall1>
+		<syscall2>android.media.MediaPlayer.release</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+	
+	<systemCall id="1019" name="MediaPlayer - prepareAsync/release">
+	    <type>Media</type>
+		<isPair>true</isPair><isUse>false</isUse>
+		<syscall1>android.media.MediaPlayer.prepareAsync</syscall1>
+		<syscall2>android.media.MediaPlayer.release</syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+	
+	<systemCall id="1020" name="location manager - getBestProvider">
+	    <type>GPS</type>
+		<isPair>false</isPair><isUse>true</isUse>
+		<syscall1>android.location.LocationManager.getBestProvider</syscall1>
+		<syscall2></syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+	
+	<systemCall id="1021" name="location manager - isProviderEnabled">
+	    <type>GPS</type>
+		<isPair>false</isPair><isUse>true</isUse>
+		<syscall1>android.location.LocationManager.isProviderEnabled</syscall1>
+		<syscall2></syscall2>
+		<isRefCounted>false</isRefCounted>
+		<sysCallRef></sysCallRef>
+		<arguments>
+			<value></value>
+		</arguments>
+	</systemCall>
+</guideline>
