@@ -1,32 +1,38 @@
-## PlumbDROID
+# PlumbDROID
 
-This is a replication package for the submission titled "Automated Repair of Resource Leaks in Android Applications" to TSE 2021.
-https://arxiv.org/abs/2003.03201
+This is a replication package for the manuscript titled "Automated Repair of Resource Leaks in Android Applications"
+(https://arxiv.org/abs/2003.03201).
 
 The package contains the tool PlumbDROID and the accompanying data for experiments in the paper
 
-# PlumbDROID (Tool)
+## PlumbDROID (Tool)
 
 This is a tool for static detection and repair of resource leaks in Android apps. The tool takes as input apk of an app and produces patches (for leaks) at the level of smali which
 which can be recompiled into
 
 ### How to install
 **0. Requirements**
-- PlumbDROID has a following major dependencies:
+
+PlumbDROID has the following major dependencies:
   $ Androguard 3.3.5 (https://pypi.org/project/androguard/)
-  $ Apktool 2.0.0 (https://ibotpeaches.github.io/Apktool/install/)
+  $ Apktool 2.4.0 (https://ibotpeaches.github.io/Apktool/install/)
   $ Android SDK along with Android Studio to run tests.
 
-**1. Install Androguard **
+**1. Install Androguard**
 - ```pip install -U androguard```
 
-**2. Install Apktool **
+**2. Install Apktool**
 - procedure described for MacOS
-  $ Download Mac wrapper script (Right click, Save Link As apktool)
-  $ Download apktool-2 (find newest here)
-  $ Rename downloaded jar to apktool.jar
-  $ Move both files (apktool.jar & apktool) to /usr/local/bin (root needed)
-  $ Make sure both files are executable (chmod +x)
+
+  -> Download [Mac wrapper](https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/osx/apktool) script (Right click, Save Link As apktool)
+
+  -> Download apktool-2 (find version 2.4.0 [here](https://bitbucket.org/iBotPeaches/apktool/downloads/))
+
+  -> Rename downloaded jar to apktool.jar
+
+  -> Move both files (apktool.jar & apktool) to /usr/local/bin (root needed)
+
+  -> Make sure both files are executable (chmod +x)
 
 
 **3. Install Android SDK** (go to next step if you already have it)
@@ -65,6 +71,7 @@ The next steps will allow you to install Android SDK in Non-GUI mode:
     ```sh
     $ pip install -r PlumbDROID/requirements.txt
     ```
+
 **5. Now we can run PlumbDROID**
 - If everything was OK, we can now run PlumbDROID:
     ```sh
@@ -72,7 +79,7 @@ The next steps will allow you to install Android SDK in Non-GUI mode:
     $ python PlumbDROID.py -s </PATH/TO/FOLDER/WITH/APKS/>
     ```
 
-## Input and output folder structure
+### Input and output folder structure
 
 **INPUT:** A folder containing files with ".apk" extension.
 **OUTPUT:** A structure of folders following this scheme:
@@ -85,12 +92,15 @@ The next steps will allow you to install Android SDK in Non-GUI mode:
 
 ### Usage
 
-usage: python PlumbDROID.py [-d] [-r] [-rfg] </PATH/TO/FOLDER/WITH/APKS/> -o  </PATH/TO/OUTPUT/FOLDER/>
+**usage:**
+
+python PlumbDROID.py [-d] [-r] [-rfg] </PATH/TO/FOLDER/WITH/APKS/> -o  </PATH/TO/OUTPUT/FOLDER/>
 
 
-optional arguments:
+**optional arguments:**
 
- -r ResourceList, --resourcelist LIST
+ - -r ResourceList, --resourcelist LIST
+
                        Change the resources being analysed; List to be added separated by commands.
                        By default all resources are analysed. The supported list of resources are:
                        AudioRecorder
@@ -103,11 +113,13 @@ optional arguments:
                        WifiLock
                        WifiManager
 
-                       If you intend to add other pairs of acquire-release operations, please modify the
-                       file xml/resources.xml in the format adherent to other pairs.
+Note:
+If you intend to add other pairs of acquire-release operations, please modify the
+file xml/resources.xml in the format adherent to other pairs.
 
 
- -d UnrollingDepth [Depth ...], --depth Depth
+ - -d UnrollingDepth [Depth ...], --depth Depth
+
                        Parameter sets the number of unrolling of loops in call-back graphs.
                        Note d > 6 will drastically slow down analysis time.
  -rfg, --ResourceFlowGraph
@@ -126,5 +138,7 @@ They contain the original apks, patched apks and also the list of PlumDROID patc
 app_name.smali. Within the file, the following convention is used:
 
 '------' : demarcates patched_apps
+
 '******' : demarcates metadata associated with patch like location, depth, etc.
+
 '######' : demarcates different resources
